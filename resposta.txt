@@ -77,3 +77,8 @@ foo(8,5) = 13
 foo(9,5) = 14
 
 com isso criamos a hipotese de que a funcao foo recebe 2 inteiros e retorna a soma deles
+
+
+
+
+https://gcc.gnu.org/legacy-ml/gcc/2016-07/msg00047.html

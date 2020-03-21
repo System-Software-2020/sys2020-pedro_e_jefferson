@@ -61,7 +61,7 @@ que e um elf32-i386 ou seja foi criado em uma arquitetura i386(x86) em um unix 3
 
 2)
 com as informacoes acima e possivel criar o executavel com o seguinte comando:
-gcc -m32 -fno-pic -fno-pie main001.c foo.o -o main 
+gcc -m32 -fno-pic -fno-pie main001.c -L. libfoo.a -o main
 
 a saida do executavel criado e o seguinte
 

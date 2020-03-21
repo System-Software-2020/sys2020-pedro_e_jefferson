@@ -99,3 +99,5 @@ Disassembly of section .text:
    d:	c3                   	ret    
 
    
+
+https://gcc.gnu.org/legacy-ml/gcc/2016-07/msg00047.html

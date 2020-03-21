@@ -74,6 +74,28 @@ foo(5,5) = 10
 foo(6,5) = 11
 foo(7,5) = 12
 foo(8,5) = 13
-foo(9,5) = 14
+foo(9,5) = 14   
 
 com isso criamos a hipotese de que a funcao foo recebe 2 inteiros e retorna a soma deles
+
+3)
+execuntando o comando ar -x libfoo.a se extrai o objeto foo.o
+execuntando o comando objdump -M intel -d foo.o se tem a visualizacao do assemble
+
+foo.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <foo>:
+   0:	55                   	push   ebp
+   1:	89 e5                	mov    ebp,esp
+   3:	83 c4 08             	add    esp,0x8
+   6:	58                   	pop    eax
+   7:	5b                   	pop    ebx
+   8:	01 d8                	add    eax,ebx
+   a:	89 ec                	mov    esp,ebp
+   c:	5d                   	pop    ebp
+   d:	c3                   	ret    
+
+   

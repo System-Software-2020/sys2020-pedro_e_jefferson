@@ -1,8 +1,8 @@
-global _start
+global foo
 
 section .text
 
-_start:
+foo:
         push ebp            ; Save original ebp
         mov ebp,esp         ; Save original esp
         add esp,0x8         ; We have to skip the return address  

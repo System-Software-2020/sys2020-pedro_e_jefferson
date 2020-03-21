@@ -57,4 +57,23 @@ no arquivo libfoo.a execuntando o comando hexdump -C libfoo.a tem o seguinte res
 00000220  2e 61 73 6d 00 66 6f 6f  00 00 00 00              |.asm.foo....|
 
 oque nos leva a comcluir que a arquivo libfoo.a possui apenas um objeto (foo.o) 
-que é um elf32-i386 ou seja foi criado em uma arquitetura i386(x86) em um unix 32 bits
+que e um elf32-i386 ou seja foi criado em uma arquitetura i386(x86) em um unix 32 bits
+
+2)
+com as informacoes acima e possivel criar o executavel com o seguinte comando:
+gcc -m32 -fno-pic -fno-pie main001.c foo.o -o main 
+
+a saida do executavel criado e o seguinte
+
+foo(0,5) =  5
+foo(1,5) =  6
+foo(2,5) =  7
+foo(3,5) =  8
+foo(4,5) =  9
+foo(5,5) = 10
+foo(6,5) = 11
+foo(7,5) = 12
+foo(8,5) = 13
+foo(9,5) = 14
+
+com isso criamos a hipotese de que a funcao foo recebe 2 inteiros e retorna a soma deles

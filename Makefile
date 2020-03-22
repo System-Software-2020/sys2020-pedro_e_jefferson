@@ -17,14 +17,14 @@ all: $(obj)
 	$(CC) $(C_FLAGS) -L. $^ -o $(bin) 
 
 install: 
-	mv libfoo.a $(usrlib)
-	mv lib/foo.h $(usrinclude)
-	mv $(bin) $(usrbin)
+	mv libfoo.a $(prefix)$(usrlib)
+	mv lib/foo.h $(prefix)$(usrinclude)
+	mv $(bin) $(prefix)$(usrbin)
 
 uninstall:
-	rm $(usrinclude)foo.h	
-	rm $(usrlib)libfoo.a
-	rm $(usrbin)$(bin)
+	rm $(prefix)$(usrinclude)foo.h	
+	rm $(prefix)$(usrlib)libfoo.a
+	rm $(prefix)$(usrbin)$(bin)
 
 foo.o: $(lib)/foo.c
 	$(CC) $(C_FLAGS) -c $<

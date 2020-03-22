@@ -2,7 +2,7 @@ CC=gcc -m32
 LIB=./lib
 SRC=./src
 OUTPUT=main
-FLAGS=-m32 -mtune=i386 -fno-pic -fno-pie
+FLAGS=-m32 -fno-pic -fno-pie
 
 all: foo.o main001.o
 	ar crs libfoo.a $<
@@ -19,13 +19,14 @@ uninstall:
 	rm $(prefix)/usr/bin/$(OUTPUT)
 
 foo.o: $(LIB)/foo.c
-	$(CC) -c -I$(LIB) $<
+	$(CC) $(FLAGS) -c $<
 
 main001.o: $(SRC)/main001.c
-	$(CC) -c $<
+	$(CC) $(FLAGS) -c $<
 
 .PHONY: .clean
 
 clean:
 	rm -f *.o
 	rm -f *.a
+	rm $(OUTPUT)

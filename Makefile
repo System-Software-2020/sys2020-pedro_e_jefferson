@@ -1,32 +1,40 @@
-CC=gcc -m32
-LIB=./lib
-SRC=./src
-OUTPUT=main
-FLAGS=-m32 -fno-pic -fno-pie
+lib =./lib
+scr =./src
+bin =main
+obj =foo.o main001.o
+usrlib =/usr/lib/
+usrinclude =/usr/include/
+usrbin =/usr/bin/
 
-all: foo.o main001.o
+CC =gcc
+CPP_FLAGS = 
+C_FLAGS =-m32 -fno-pic -fno-pie
+LD_FLAGS =
+
+
+all: $(obj)
 	ar crs libfoo.a $<
-	$(CC) $(FLAGS) -L. $^ -o $(OUTPUT) 
+	$(CC) $(C_FLAGS) -L. $^ -o $(bin) 
 
 install: 
-	mv libfoo.a $(prefix)/usr/lib/
-	mv lib/foo.h $(prefix)/usr/include/
-	mv $(OUTPUT) $(prefix)/usr/bin/
+	mv libfoo.a $(usrlib)
+	mv lib/foo.h $(usrinclude)
+	mv $(bin) $(usrbin)
 
 uninstall:
-	rm $(prefix)/usr/include/foo.h	
-	rm $(prefix)/usr/lib/libfoo.a
-	rm $(prefix)/usr/bin/$(OUTPUT)
+	rm $(usrinclude)foo.h	
+	rm $(usrlib)libfoo.a
+	rm $(usrbin)$(bin)
 
-foo.o: $(LIB)/foo.c
-	$(CC) $(FLAGS) -c $<
+foo.o: $(lib)/foo.c
+	$(CC) $(C_FLAGS) -c $<
 
-main001.o: $(SRC)/main001.c
-	$(CC) $(FLAGS) -c $<
+main001.o: $(scr)/main001.c
+	$(CC) $(C_FLAGS) -c $<
 
 .PHONY: .clean
 
 clean:
 	rm -f *.o
 	rm -f *.a
-	rm $(OUTPUT)
+	rm -f $(bin)

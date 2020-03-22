@@ -100,6 +100,7 @@ Disassembly of section .text:
 
 com isso foi possivel criar o foo.asm onde esta comentado oque cada linha faz
 
+4)foi criado o foo.c e o foo.h com base nas respostas anteriores e foi criado o Makefile
    
 
 https://gcc.gnu.org/legacy-ml/gcc/2016-07/msg00047.html
